@@ -1,6 +1,7 @@
+import { user } from "@/util/db";
 import { NextResponse } from "next/server";
 
 export async function GET(request){
-    // return new Response("Users from Server");
-    return NextResponse.json({"Name":"Sohom"},{status:201})
+    const data=user;
+    return NextResponse.json(data,{status:200})
 }
