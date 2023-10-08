@@ -6,7 +6,7 @@ export async function GET(req,content){
     // console.log(content);
 
     const data=user;
-    const res=data.filter((item)=>item.age==content.params.uid)
+    const res=data.filter((item)=>item.name==content.params.uid)
 
     return NextResponse.json(res.length!=0?res:{status:"Data not found"},res.length!=0?{status:200}:{status:404})
 }
