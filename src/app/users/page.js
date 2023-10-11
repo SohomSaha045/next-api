@@ -14,8 +14,12 @@ export default async function Users() {
       <h1>Hi from User</h1>
       {user.map((data) => {
         return (
-          <div>
-            <Link href={`/users/${data.name}`}>{data.name}</Link>
+          <div className="user-item">
+            <span><Link href={`/users/${data.name}`}>{data.name}</Link></span>
+            
+            <span style={{}}>
+            <Link href={`/users/${data.name}/update`}>Edit</Link>
+            </span>
           </div>
         );
       })}
