@@ -18,8 +18,22 @@ export async function PUT(request,content){
       }
     // console.log(userName); 
     return NextResponse.json({"result":payload,"status":"Success"},{status:200});
-
-
-     
+}
+export function DELETE(request,content){
+    let userName=content.params.uName;
+    if(userName){
+        return NextResponse.json({
+            result:"User Deleted"
+        },{
+            status:200
+        })
+    }
+    else{
+        return NextResponse.json({
+            result:"Internal Error Please after Some Time"
+        },{
+            status:400
+        })
+    }
 
 }
