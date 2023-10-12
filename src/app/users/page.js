@@ -1,3 +1,4 @@
+import Delete from "@/util/deleteUser";
 import Link from "next/link";
 
 const getUsers = async () => {
@@ -19,6 +20,9 @@ export default async function Users() {
             
             <span style={{}}>
             <Link href={`/users/${data.name}/update`}>Edit</Link>
+            </span>
+            <span style={{}}>
+            <Delete name={data.name}/>
             </span>
           </div>
         );
