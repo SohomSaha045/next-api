@@ -5,8 +5,18 @@ import { User } from "../../lib/model/user";
 import mongoose from "mongoose";
 
 export async function GET(request) {
-  const data = user;
-  return NextResponse.json(data, { status: 200 });
+  // const data = user;
+  // let data=[]
+  try{
+  await mongoose.connect(cUrl);
+  let data= await User.find();
+  // data=await data.json();
+  console.log(data);
+  return NextResponse.json(data,{status:200});
+  }
+  catch(e){
+  return NextResponse.json({error:"Something went Wrong"}, { status: 400 });
+  }
 }
 
 export async function POST(request) {

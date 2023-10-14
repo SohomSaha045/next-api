@@ -8,6 +8,8 @@ const getUsers = async () => {
 };
 
 export default async function Users() {
+  
+
   const user = await getUsers();
   // console.log(user)
   return (
