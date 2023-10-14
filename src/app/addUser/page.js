@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function AddUser() {
   const [name, setName] = useState("");
-  const [age, setAge] = useState(null);
+  const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
   const addUser = async () => {
     // console.log(name,age,email);
@@ -13,8 +13,12 @@ export default function AddUser() {
       body:JSON.stringify({name,age,email})
     });
     response= await response.json();
-    console.log(response);
-
+    if(response.success){
+      alert("User Created")
+    }
+    else{
+      alert("User not Created")
+    }
   };
   return (
     <div>
