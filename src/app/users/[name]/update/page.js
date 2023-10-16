@@ -31,7 +31,7 @@ export default function Page({ params }) {
     if (result.status === "Success") {
       alert("Updated Data Succesfully");
     }
-    console.log(result);
+    // console.log(result);
     router.push(`/users/${name}`);
     // redirect('/users','replace');
   };
