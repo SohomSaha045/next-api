@@ -1,5 +1,6 @@
 "use client";
-
+import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page({ params }) {
@@ -19,7 +20,9 @@ export default function Page({ params }) {
     getAndPut();
   }, []);
   // console.log(params.name);
+  const router = useRouter();
   const updateUser = async () => {
+
     let result = await fetch(`http://localhost:3000/api/users/${n}`, {
       method: "PUT",
       body: JSON.stringify({ name, age, email }),
@@ -29,6 +32,8 @@ export default function Page({ params }) {
       alert("Updated Data Succesfully");
     }
     console.log(result);
+    router.push(`/users/${name}`);
+    // redirect('/users','replace');
   };
   return (
     <div>

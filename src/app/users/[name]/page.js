@@ -1,16 +1,19 @@
+'use client'
+// import { useEffect } from "react";
+let data;
 const getUsers = async (name) => {
-  let data = await fetch(`http://localhost:3000/api/users/${name}`);
+  data = await fetch(`http://localhost:3000/api/users/${name}`);
 
   data = await data.json();
   // data= await data.filter((e)=>e.name==name);
   return data;
 };
 export default async function Login({ params }) {
+  // useEffect(() => getUsers, []);
   const data = await getUsers(params.name);
   return (
     <div>
-      {
-        data.map((e) => {
+      {data.map((e) => {
         return (
           <>
             <h1>Name: {e.name}</h1>

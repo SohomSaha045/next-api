@@ -42,8 +42,15 @@ export async function PUT(request, content) {
     return NextResponse.json({ status: "In Correct payload" }, { status: 400 });
   }
   // console.log(userName);
+  
+  await mongoose.connect(cUrl);
+  let data = await User.findOneAndUpdate({ name: content.params.uName },{
+    name:payload.name,
+    age:payload.age,
+    email:payload.email
+  });
   return NextResponse.json(
-    { result: payload, status: "Success" },
+    { result: data, status: "Success" },
     { status: 200 }
   );
 }
