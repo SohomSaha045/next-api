@@ -54,21 +54,25 @@ export async function PUT(request, content) {
     { status: 200 }
   );
 }
-export function DELETE(request, content) {
+export async function DELETE(request, content) {
   let userName = content.params.uName;
-  if (userName) {
+  try{
+    await mongoose.connect(cUrl);
+    await User.findOneAndDelete({name:userName});
     return NextResponse.json(
       {
         result: "User Deleted",
+        success:true
       },
       {
         status: 200,
       }
     );
-  } else {
+  } catch(e) {
     return NextResponse.json(
       {
-        result: "Internal Error Please after Some Time",
+        result: "Internal Error Please after Some Time"+e,
+        success:false
       },
       {
         status: 400,

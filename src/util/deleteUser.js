@@ -7,8 +7,13 @@ export default function Delete(props) {
       method: "DELETE",
     });
     result = await result.json();
-    alert(`${props.name} ${result.result}`);
+    if (result.success) {
+      alert(`${props.name} ${result.result}`);
+    } else {
+      alert(`SomeThing went Wrong`);
+    }
     console.log(result.result);
+    window.location.reload();
   };
   return <button onClick={() => del()}>Delete</button>;
 }
