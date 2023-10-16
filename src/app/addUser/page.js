@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 export default function AddUser() {
+const router=useRouter();
+
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
@@ -15,6 +17,7 @@ export default function AddUser() {
     response= await response.json();
     if(response.success){
       alert("User Created")
+      router.replace('/users')
     }
     else{
       alert("User not Created")
