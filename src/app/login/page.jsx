@@ -1,7 +1,14 @@
+import ListLogin from "../components/Listlogin"
+import NewLogin from "../components/newLogin"
+
+
 export default function Login(){
     return (
-        <div>
-        Login Page
+        <div className="cont">
+
+        <ListLogin/>
+        <NewLogin/>
+        
         </div>
     )
 }

@@ -5,7 +5,7 @@
     width: 300px;
 }
 .btn{
-    background-color: skyblue;
+    background-color: grey;
     color: aliceblue;
     border: 0ch;
     width: 300px;
@@ -13,6 +13,10 @@
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+.btn:hover{
+    background-color: black;
+    color: aliceblue;
 }
 .add-user{
      margin-top: 100px;
@@ -23,3 +27,22 @@
     width: 100px;
 
 }
+.cont{
+    display: flex;
+    flex-direction: row;
+}
+.right{
+    height: 200px;
+    padding: 10px;
+    border: 1px solid black;
+    flex: 1;
+    margin: 10px;
+  }
+.left{
+    height: 200px;
+    padding: 10px;
+    border: 1px solid black;
+    flex: 1;
+    margin: 10px;
+
+  }
